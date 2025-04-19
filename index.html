@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Easily calculate how much you need to pay into your tax free childcare account">
+    <title>Tax Free Childcare Calculator</title>
+    <style>
+        /* CSS will be included here */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .background-calculator {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+        }
+        
+        .calculator-image-container {
+            text-align: center;
+        }
+        
+        h1, h2, h3 {
+            font-weight: 700;
+        }
+        
+        .navy-line {
+            width: 100px;
+            height: 3px;
+            background-color: #1ab394;
+            margin: 20px auto;
+        }
+        
+        .gray-section {
+            background-color: #f3f3f4;
+            padding: 60px 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .font-bold {
+            font-weight: 600;
+        }
+        
+        .text-color {
+            color: #333;
+        }
+        
+        .btn {
+            margin: 5px 0;
+            width: 100%;
+        }
+        
+        .m-t-sm {
+            margin-top: 10px;
+        }
+        
+        .m-t-md {
+            margin-top: 20px;
+        }
+        
+        .m-t-xl {
+            margin-top: 40px;
+        }
+        
+        .m-b-md {
+            margin-bottom: 20px;
+        }
+        
+        .m-b-lg {
+            margin-bottom: 30px;
+        }
+        
+        .m-b-xl {
+            margin-bottom: 50px;
+        }
+        
+        .offset-lg-2 {
+            margin-left: 16.666667%;
+        }
+        
+        @media (max-width: 992px) {
+            .offset-lg-2 {
+                margin-left: 0;
+            }
+        }
+
+        .form-control{
+            padding: 10px;
+        }
+
+        .gray-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+
+    </style>
+</head>
+<body id="page-top">
+    <section id="header" class="calculator-image-container background-calculator">
+        <div class="container">
+            <div class="carousel-caption">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1>Tax Free Childcare Calculator</h1>
+                        <p>Calculate the amount the Government will contribute towards your childcare</p>
+                    </div>
+                </div>
+
+                <div class="row m-t-xl">
+                    <div class="col-md-8 offset-md-2">
+                        <h2>You know how much your childcare costs...<br>But you're struggling to work out how much you need to pay into your account to get the government's contribution to total that amount?<br><br>Then this calculator is for you!</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="calculator" class="gray-section">
+        <div class="container">
+            <div class="row m-b-lg">
+                <div class="col-12 text-center">
+                    <div class="navy-line"></div>
+                    <h1>Calculator</h1>
+                </div>
+            </div>
+
+            <div class="row m-b-lg">
+                <div class="col-md-9">
+                    <form id="form" class="m-t-lg">
+                        <div class="form-group">
+                            <label for="totalAmount" class="font-bold">Total amount payable to Childcare Provider (Per Child)</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">£</span>
+                                </div>
+                                <input type="text" class="form-control" id="totalAmount" placeholder="0.00" >
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="alreadyContributed" class="font-bold">Amount already Contributed by Government (Current 3 month period)</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">£</span>
+                                </div>
+                                <input type="text" class="form-control" id="alreadyContributed" placeholder="0.00">
+                            </div>
+                        </div>
+
+                        <div class="form-group m-t-xl">
+                            <label for="payAmount" class="font-bold">Amount to pay into Government Childcare Account</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">£</span>
+                                </div>
+                                <input type="text" class="form-control" id="payAmount" placeholder="0.00">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contributionAmount" class="font-bold">Amount contributed by Government</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">£</span>
+                                </div>
+                                <input type="text" class="form-control" id="contributionAmount" placeholder="0.00" readonly>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-3 text-center">
+                    <h2>Quick Links</h2>
+                    <div class="row m-t-md">
+                        <div class="col-12">
+                            <a href="https://vatcalculator.site" class="btn btn-danger btn-lg" target="_blank">VAT Calculator</a>
+                        </div>
+                    </div>
+                    <div class="row m-t-md">
+                        <div class="col-12">
+                            <a href="https://www.gov.uk/sign-in-childcare-account" id="signInBtn" class="btn btn-primary btn-lg" target="_blank">Sign into your Account</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 m-t-md">
+                            <a href="https://www.tax.service.gov.uk/childcare-calc" class="btn btn-info btn-outline btn-lg checkEligibleBtn" target="_blank">Check if you're Eligible</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 m-t-md">
+                            <a href="https://www.gov.uk/tax-free-childcare" id="officialWebsiteBtn" class="btn btn-success btn-outline btn-lg" target="_blank">Tax Free Childcare Website</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 m-t-md">
+                            <a href="https://childcare-support.tax.service.gov.uk/par/app/checkerstart" id="searchProvidersBtn" class="btn btn-danger btn-outline btn-lg" target="_blank">Registered Childcare Providers</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tax-free-childcare">
+        <div class="container">
+            <div class="row m-b-lg">
+                <div class="col-12 text-center">
+                    <div class="navy-line"></div>
+                    <h1>Tax Free Childcare</h1>
+                </div>
+            </div>
+
+            <div class="row m-b-lg">
+                <div class="col-md-8 offset-md-2">
+                    <p class="text-color">You can get up to £500 every 3 months (£2,000 a year) for each of your children to help with the costs of childcare. This goes up to £1,000 every 3 months if a child is disabled (up to £4,000 a year).</p>
+                    <p class="text-color">If you get Tax-Free Childcare, the government will pay £2 for every £8 you pay your childcare provider. This is paid via an online childcare account that you set up for your child.</p>
+                    <p class="text-color">You can get Tax-Free Childcare at the same time as 15 or 30 hours free childcare if you're eligible for both.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="information" class="gray-section">
+        <div class="container">
+            <div class="row m-b-lg">
+                <div class="col-12 text-center">
+                    <div class="navy-line"></div>
+                    <h1>What you can use Tax-Free Childcare for</h1>
+                </div>
+            </div>
+
+            <div class="row m-b-lg">
+                <div class="col-md-8 offset-md-2">
+                    <p>You can use it to pay for approved childcare, for example:</p>
+                    <ul>
+                        <li>childminders, nurseries and nannies</li>
+                        <li>after school clubs and play schemes</li>
+                    </ul>
+                    <p>Your childcare provider must be signed up to the scheme before you can pay them and benefit from Tax-Free Childcare.</p>
+                    <p>Check with your provider to see if they're signed up.</p>
+
+                    <h3 class="m-t-sm">If your child is disabled</h3>
+                    <p>You can use the extra Tax-Free Childcare money you get to help pay for extra hours of childcare. You can also use it to help pay your childcare provider so they can get specialist equipment for your child such as mobility aids. Talk to them about what equipment your child can get.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="eligibility">
+        <div class="container">
+            <div class="row m-b-lg">
+                <div class="col-12 text-center">
+                    <div class="navy-line"></div>
+                    <h1>Eligibility</h1>
+                </div>
+            </div>
+
+            <div class="row m-b-lg">
+                <div class="col-md-8 offset-md-2">
+                    <p>Your eligibility depends on:</p>
+                    <ul>
+                        <li>whether you're working (employed, self-employed, or a director)</li>
+                        <li>your income (and your partner's income, if you have one)</li>
+                        <li>your child's age and circumstances</li>
+                        <li>your immigration status</li>
+                    </ul>
+
+                    <h3 class="m-t-sm">If you are working</h3>
+                    <p>You can usually get Tax-Free Childcare if you (and your partner, if you have one) are:</p>
+                    <ul>
+                        <li>in work</li>
+                        <li>on sick leave or annual leave</li>
+                        <li>on shared parental, maternity, paternity or adoption leave and you're going back to work within 31 days of the date you first applied</li>
+                    </ul>
+
+                    <div class="row">
+                        <div class="col-12 text-center m-t-xl">
+                            <a href="https://www.tax.service.gov.uk/childcare-calc" class="btn btn-info btn-lg checkEligibleBtn" target="_blank">Check if you're Eligible</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tax-credits" class="gray-section">
+        <div class="container">
+            <div class="row m-b-lg">
+                <div class="col-12 text-center">
+                    <div class="navy-line"></div>
+                    <h1>If you get tax credits, Universal Credit<br>or childcare vouchers</h1>
+                </div>
+            </div>
+
+            <div class="row m-b-lg">
+                <div class="col-md-8 offset-md-2">
+                    <p>You cannot get Tax-Free Childcare at the same time as claiming Working Tax Credit, Child Tax Credit, Universal Credit or childcare vouchers.</p>
+                    <p>Which scheme you're better off with depends on your situation. Use the childcare calculator to work out which type of support is best for you.</p>
+
+                    <h3 class="m-t-sm">Tax credits</h3>
+                    <p>If you successfully apply for Tax-Free Childcare, your Working Tax Credit or Child Tax Credit will stop straight away. You cannot apply for them again.</p>
+
+                    <h3 class="m-t-sm">Childcare vouchers</h3>
+                    <p>You must tell your employer within 90 days of applying for Tax-Free Childcare to stop your childcare vouchers or directly contracted childcare.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="apply">
+        <div class="container m-b-xl">
+            <div class="row m-b-xl">
+                <div class="col-12 text-center">
+                    <div class="navy-line"></div>
+                    <h1>Apply</h1>
+                </div>
+            </div>
+
+            <div class="row m-b-xl">
+                <div class="col-12 text-center">
+                    <a href="https://www.gov.uk/apply-for-tax-free-childcare" id="applyBtn" class="btn btn-danger btn-lg btn-outline m-b-md">Apply online for Tax-Free Childcare</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // JavaScript will be included here
+        document.addEventListener('DOMContentLoaded', function() {
+            const MAX_CONTRIBUTION = 500;
+            
+            const iSignInBtn = document.getElementById('signInBtn');
+            const iOfficialWebsiteBtn = document.getElementById('officialWebsiteBtn');
+            const iSearchProvidersBtn = document.getElementById('searchProvidersBtn');
+            const iApplyBtn = document.getElementById('applyBtn');
+            const cCheckEligibleBtn = document.querySelectorAll('.checkEligibleBtn');
+            
+            const iTotalAmount = document.getElementById('totalAmount');
+            const iAlreadyContributed = document.getElementById('alreadyContributed');
+            const iPayAmount = document.getElementById('payAmount');
+            const iContributionAmount = document.getElementById('contributionAmount');
+            
+            // Initialize numeric inputs
+            function initNumericInput(input, options = {}) {
+                input.addEventListener('input', function(e) {
+                    let value = e.target.value;
+                    // Remove non-numeric characters except decimal point
+                    value = value.replace(/[^0-9.]/g, '');
+                    // Ensure only one decimal point
+                    const decimalSplit = value.split('.');
+                    if (decimalSplit.length > 2) {
+                        value = decimalSplit[0] + '.' + decimalSplit.slice(1).join('');
+                    }
+                    // Ensure max 2 decimal places
+                    if (decimalSplit.length > 1 && decimalSplit[1].length > 2) {
+                        value = decimalSplit[0] + '.' + decimalSplit[1].substring(0, 2);
+                    }
+                    // Apply min/max constraints
+                    if (options.vMin && parseFloat(value) < parseFloat(options.vMin)) {
+                        value = options.vMin;
+                    }
+                    if (options.vMax && parseFloat(value) > parseFloat(options.vMax)) {
+                        value = options.vMax;
+                    }
+                    e.target.value = value;
+                });
+            }
+            
+            initNumericInput(iTotalAmount, { vMin: '0' });
+            initNumericInput(iAlreadyContributed, { vMin: '0', vMax: MAX_CONTRIBUTION.toString() });
+            initNumericInput(iPayAmount, { vMin: '0' });
+            
+            // Event listeners
+            iTotalAmount.addEventListener('input', updatedTotalAmount);
+            iPayAmount.addEventListener('input', updatedPayAmount);
+            iAlreadyContributed.addEventListener('input', updatedTotalAmount);
+            
+            function updatedTotalAmount() {
+                const amount = parseFloat(iTotalAmount.value) || 0;
+                
+                if (amount > 0) {
+                    const payInAmount = (amount / 10) * 8;
+                    const contributionAmount = (amount / 10) * 2;
+                    
+                    calculateContribution('total', payInAmount, contributionAmount);
+                } else {
+                    iPayAmount.value = '0.00';
+                    iContributionAmount.value = '0.00';
+                }
+            }
+            
+            function updatedPayAmount() {
+                const amount = parseFloat(iPayAmount.value) || 0;
+                
+                if (amount > 0) {
+                    const contributionAmount = (amount / 8) * 2;
+                    calculateContribution('payIn', amount, contributionAmount);
+                } else {
+                    iTotalAmount.value = '0.00';
+                    iContributionAmount.value = '0.00';
+                }
+            }
+            
+            function calculateContribution(updateType, payInAmount, contributionAmount) {
+                payInAmount = parseFloat(payInAmount) || 0;
+                contributionAmount = parseFloat(contributionAmount) || 0;
+                const alreadyContributed = parseFloat(iAlreadyContributed.value) || 0;
+                const maxContribution = MAX_CONTRIBUTION - alreadyContributed;
+                
+                if (contributionAmount > maxContribution) {
+                    if (updateType === 'total') {
+                        payInAmount += (contributionAmount - maxContribution);
+                    }
+                    contributionAmount = maxContribution;
+                }
+                
+                if (updateType === 'total') {
+                    iPayAmount.value = payInAmount.toFixed(2);
+                } else {
+                    iTotalAmount.value = (payInAmount + contributionAmount).toFixed(2);
+                }
+                
+                iContributionAmount.value = contributionAmount.toFixed(2);
+            }
+            
+            // Outbound link tracking
+            function handleOutboundLinkClicks(description) {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'click', {
+                        'event_category': 'Outbound Link',
+                        'event_label': description
+                    });
+                }
+            }
+            
+            iSignInBtn.addEventListener('click', function() {
+                handleOutboundLinkClicks('Sign into your Account');
+            });
+            
+            cCheckEligibleBtn.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    handleOutboundLinkClicks('Check if you\'re Eligible');
+                });
+            });
+            
+            iOfficialWebsiteBtn.addEventListener('click', function() {
+                handleOutboundLinkClicks('Tax Free Childcare Website');
+            });
+            
+            iSearchProvidersBtn.addEventListener('click', function() {
+                handleOutboundLinkClicks('Register Childcare Providers');
+            });
+            
+            iApplyBtn.addEventListener('click', function() {
+                handleOutboundLinkClicks('Apply online for Tax-Free Childcare');
+            });
+        });
+    </script>
+</body>
+</html>
